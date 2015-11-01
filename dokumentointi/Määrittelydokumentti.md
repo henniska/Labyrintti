@@ -1,1 +1,1 @@
-
+Aion toteuttaa ainakin verkon leveyssuuntaisen läpikäynnin algoritmin (breadth-first search algorithm). Tietorakenne joka on siis pakko toteuttaa on Stack. Joudun luultavasti toteuttaamaan myös jonkinmoisen järjestysalgoritmin ja lista rajapinnan. Valitsin bfs:n koska sen avulla voi käydä lapi kaikki verkon solmut leveyssuunnassa, eli labyrintin kaikki reitit käydään läpi samanaikaisesti samalla nopeudella. Ohjelman syötteeksi tulisi haluttu labyrintti, jonka ohjelma sitten ratkaisee. Tavoitteena on saada aikavaativuus ja tilavaativuus noin O(n) missä n on "solmujen määrä".
