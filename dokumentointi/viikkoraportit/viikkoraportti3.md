@@ -1,0 +1,1 @@
+On ollut muita hommia, joten projekti ei ole oikein edennyt. Ensi viikolla aion tehdä rästissä olevaa koodia. Olen ajatellut tehdä labyrintista .jpeg kuvan, jossa BFS ajaa pixelien läpi ja jonkun värinen pixel rajaa labyrintin. Algoritmi sitten palauttaisi saman kuvan, jossa lyhin reitti on korostettuna.  
