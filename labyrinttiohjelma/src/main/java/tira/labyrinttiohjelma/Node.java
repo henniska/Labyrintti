@@ -7,13 +7,13 @@ package tira.labyrinttiohjelma;
 
 /**
  *
- * Sisältää solmun x ja y koordinaatit.
+ * SisÃ¤ltÃ¤Ã¤ solmun x ja y koordinaatit.
  */
 public class Node {
     int x;
     int y;
     
-    
+    // Jos alan käyttyämään BufferedImage Node luokan voi muuttaa tarpeen mukaan pixeleitä varten.
     public Node(int x, int y) {
         this.x = x;
         this.y = y;

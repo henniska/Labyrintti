@@ -18,6 +18,7 @@ public class Labyrintti {
     }
     
     public void etsiALkuLoppu() {
+        // Booleanit siltä varalta jos on monta alkua ja loppua.
         boolean alkuLoyty = false;
         boolean loppuLoyty = false;
         for (int i = 0; i < kuva.length; i++) {

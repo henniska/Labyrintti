@@ -12,6 +12,7 @@ public class BFS {
     
     private Labyrintti kopio; // Teen paremmin?
     private final Labyrintti laby;
+    // Merkkaaja Node kertoo kun uusi 'aalto' tai sykli alkaa jonossa, milloin voi kasvattaa matkan pituutta.
     private Node merkkaaja;
     private boolean uusiSykli = false;
     
@@ -22,6 +23,7 @@ public class BFS {
         
     }
     
+    // Etsii lyhimmän reitin labyrintin loppuun ja palauttaa sen matkan.
     public int lyhin() {
         Queue<Node> q = new ArrayDeque<>();
         int n = kopio.getAlkuX();
@@ -34,11 +36,13 @@ public class BFS {
             Node s = q.poll();
             int x = s.getX();
             int y = s.getY();
-
-            if (s.getX() == merkkaaja.getX() && s.getY() == merkkaaja.getY()) {
-                uusiSykli = true;
-                merkkaaja = null;
-                matka++;
+            
+            if (merkkaaja != null) {
+                if (s.getX() == merkkaaja.getX() && s.getY() == merkkaaja.getY()) {
+                    uusiSykli = true;
+                    merkkaaja = null;
+                    matka++;
+                }
             }
             if (reitti(x+1, y, q)) return matka;
             if (reitti(x-1, y, q)) return matka;
@@ -51,6 +55,7 @@ public class BFS {
         return -1;
     }
     
+    // Palauttaa true jos loppu löytyy.
     public boolean reitti(int x, int y, Queue q) {
         if (reitinSelvitys(x, y)) {
             q.add(new Node(x, y));
@@ -68,6 +73,7 @@ public class BFS {
         return false;
     }
     
+    // Katsoo onko reitti laillinen
     public boolean reitinSelvitys(int x, int y) {
 
         if (x < 0 || x >= kopio.getKuva().length || y < 0 || y >= kopio.getKuva()[0].length) {
@@ -80,6 +86,8 @@ public class BFS {
         return true;
     }
     
+    
+    // Koska lyhin() metodini joutuu muokkaamaan taulukkoa, tarvitaan siitä aina kopio siltä varalta, että joudutaan tekemään monta lyhin() kutsua.
     public Labyrintti teeKopioNykyisesta() {
         int a = laby.getKuva().length;
         int b = laby.getKuva()[0].length;
