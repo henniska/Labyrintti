@@ -19,7 +19,7 @@ import tira.labyrinttiohjelma.*;
 public class BfsTest {
     private BFS bf;
     private Labyrintti lb;
-    private Queue q;
+    private Jono q;
     
     public BfsTest() {
     }
@@ -36,7 +36,7 @@ public class BfsTest {
     public void setUp() {
         lb = new Labyrintti(test);
         bf = new BFS(lb);
-        q = new ArrayDeque();
+        q = new Jono<>();
     }
     
     @After
@@ -52,7 +52,7 @@ public class BfsTest {
     
     @Test
     public void reittiTest() {
-        assertEquals(false, bf.reitti(0, 0, q));
+        assertEquals(false, bf.reitti(0, 0, null, q));
     }
     
     @Test

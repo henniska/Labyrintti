@@ -12,11 +12,24 @@ package tira.labyrinttiohjelma;
 public class Node {
     int x;
     int y;
+    //Edellinen kertoo reitin mitä pitkin on tultu.
+    Node edellinen;
     
     // Jos alan käyttyämään BufferedImage Node luokan voi muuttaa tarpeen mukaan pixeleitä varten.
+    public Node(int x, int y, Node edellinen) {
+        this.x = x;
+        this.y = y;
+        this.edellinen = edellinen;
+    }
+    
     public Node(int x, int y) {
         this.x = x;
         this.y = y;
+        this.edellinen = null;
+    }
+    
+    public Node prev() {
+        return edellinen;
     }
 
     public int getX() {
@@ -35,5 +48,8 @@ public class Node {
         this.y = y;
     }
     
-    
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }

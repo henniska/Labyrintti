@@ -15,6 +15,8 @@ public class BFS {
     // Merkkaaja Node kertoo kun uusi 'aalto' tai sykli alkaa jonossa, milloin voi kasvattaa matkan pituutta.
     private Node merkkaaja;
     private boolean uusiSykli = false;
+    //Node maalia tarvitaan, jotta voitaisiin käydä reitti läpi prev() metoding avulla.
+    private Node maali;
     
     
     public BFS (Labyrintti laby) {
@@ -25,7 +27,7 @@ public class BFS {
     
     // Etsii lyhimmän reitin labyrintin loppuun ja palauttaa sen matkan.
     public int lyhin() {
-        Queue<Node> q = new ArrayDeque<>();
+        Jono<Node> q = new Jono<>();
         int n = kopio.getAlkuX();
         int m = kopio.getAlkuY();
         q.add(new Node(n, m));
@@ -44,10 +46,10 @@ public class BFS {
                     matka++;
                 }
             }
-            if (reitti(x+1, y, q)) return matka;
-            if (reitti(x-1, y, q)) return matka;
-            if (reitti(x, y+1, q)) return matka;
-            if (reitti(x, y-1, q)) return matka;
+            if (reitti(x+1, y, s, q)) return matka;
+            if (reitti(x-1, y, s, q)) return matka;
+            if (reitti(x, y+1, s, q)) return matka;
+            if (reitti(x, y-1, s, q)) return matka;
 
         }
         System.out.println("Loppua ei löytynyt");
@@ -56,9 +58,10 @@ public class BFS {
     }
     
     // Palauttaa true jos loppu löytyy.
-    public boolean reitti(int x, int y, Queue q) {
+    public boolean reitti(int x, int y, Node edel, Jono q) {
         if (reitinSelvitys(x, y)) {
-            q.add(new Node(x, y));
+            Node m = new Node(x, y, edel);
+            q.add(m);
             if (uusiSykli) {
                 merkkaaja = new Node(x, y);
                 uusiSykli = false;
@@ -67,6 +70,7 @@ public class BFS {
                 kopio.getKuva()[x][y] = '#';
             } else {
                 this.kopio = teeKopioNykyisesta();
+                maali = m;
                 return true;
             }
         }
@@ -100,6 +104,10 @@ public class BFS {
             }
         }
         return new Labyrintti(matriisiKopio);
+    }
+    
+    public Node getMaali() {
+        return maali;
     }
     
 }
