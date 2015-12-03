@@ -52,7 +52,7 @@ public class BfsTest {
     
     @Test
     public void reittiTest() {
-        assertEquals(false, bf.reitti(0, 0, null, q));
+        assertEquals(false, bf.reitti(0, 0, null));
     }
     
     @Test

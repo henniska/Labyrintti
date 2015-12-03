@@ -1,33 +1,27 @@
 
 package tira.labyrinttiohjelma;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
 
 /**
  *
  * Breadth-First seach algoritmi;
  */
-public class BFS {
+public class BFS extends Ratkaisija {
     
-    private Labyrintti kopio; // Teen paremmin?
-    private final Labyrintti laby;
+
     // Merkkaaja Node kertoo kun uusi 'aalto' tai sykli alkaa jonossa, milloin voi kasvattaa matkan pituutta.
     private Node merkkaaja;
     private boolean uusiSykli = false;
-    //Node maalia tarvitaan, jotta voitaisiin käydä reitti läpi prev() metoding avulla.
-    private Node maali;
-    
+    private Jono<Node> q;
     
     public BFS (Labyrintti laby) {
-        this.laby = laby;
-        this.kopio = teeKopioNykyisesta();
+        super(laby);
         
     }
-    
-    // Etsii lyhimmän reitin labyrintin loppuun ja palauttaa sen matkan.
-    public int lyhin() {
-        Jono<Node> q = new Jono<>();
+    //Palauttaa lyhimmän reitin pituuden.
+    @Override
+    public int lyhin() {;
+        this.q = new Jono<>();
         int n = kopio.getAlkuX();
         int m = kopio.getAlkuY();
         q.add(new Node(n, m));
@@ -46,10 +40,10 @@ public class BFS {
                     matka++;
                 }
             }
-            if (reitti(x+1, y, s, q)) return matka;
-            if (reitti(x-1, y, s, q)) return matka;
-            if (reitti(x, y+1, s, q)) return matka;
-            if (reitti(x, y-1, s, q)) return matka;
+            if (reitti(x+1, y, s)) return matka;
+            if (reitti(x-1, y, s)) return matka;
+            if (reitti(x, y+1, s)) return matka;
+            if (reitti(x, y-1, s)) return matka;
 
         }
         System.out.println("Loppua ei löytynyt");
@@ -58,7 +52,7 @@ public class BFS {
     }
     
     // Palauttaa true jos loppu löytyy.
-    public boolean reitti(int x, int y, Node edel, Jono q) {
+    public boolean reitti(int x, int y, Node edel) {
         if (reitinSelvitys(x, y)) {
             Node m = new Node(x, y, edel);
             q.add(m);
@@ -75,39 +69,6 @@ public class BFS {
             }
         }
         return false;
-    }
-    
-    // Katsoo onko reitti laillinen
-    public boolean reitinSelvitys(int x, int y) {
-
-        if (x < 0 || x >= kopio.getKuva().length || y < 0 || y >= kopio.getKuva()[0].length) {
-            return false;
-        }
-        if (kopio.getKuva()[x][y] == '#') {
-            return false;
-        }
-
-        return true;
-    }
-    
-    
-    // Koska lyhin() metodini joutuu muokkaamaan taulukkoa, tarvitaan siitä aina kopio siltä varalta, että joudutaan tekemään monta lyhin() kutsua.
-    public Labyrintti teeKopioNykyisesta() {
-        int a = laby.getKuva().length;
-        int b = laby.getKuva()[0].length;
-        char[][] lb = laby.getKuva();
-        char[][] matriisiKopio = new char[a][b];
-        
-        for (int i = 0; i < a; i++) {
-            for (int j = 0; j < b; j++) {
-                matriisiKopio[i][j] = lb[i][j];
-            }
-        }
-        return new Labyrintti(matriisiKopio);
-    }
-    
-    public Node getMaali() {
-        return maali;
     }
     
 }

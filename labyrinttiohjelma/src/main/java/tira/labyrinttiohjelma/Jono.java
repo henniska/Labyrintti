@@ -1,11 +1,8 @@
 
 package tira.labyrinttiohjelma;
-
-import java.lang.reflect.Array;
-
 /**
  *
- * @author Henri
+ * Jonon toteutus;
  * @param <T>
  */
 public class Jono<T> {
