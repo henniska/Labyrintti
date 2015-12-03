@@ -1,1 +1,2 @@
-Testaus on aloitettu BFS ja Labyrintti luokille. Luokkien tärkeimpien metodien palautukset on testattu.
+##Testausdokumentti
+JUnit testetejä on tehty jokaiselle luokalle. Luokkien eri metodien tulostuksia on myös testattu, yrittäen ottaa huomioon ohjelman suorituksen aikana tapahtuvia odottamattomia tilanteita. Ohjelman labyrintin ratkaisu algoritmeihin on lisätty tulostus metodi, mikä tulostaa muun muassa labyrintin reitin graaffisesti. Tämä on ollut hyvin hyödyllinen ohjelman testauksessa, sillä siitä voi nähdä suoraan onko lyhin reitti oikea. 
