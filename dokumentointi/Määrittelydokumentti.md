@@ -1,1 +1,19 @@
-Aion toteuttaa ainakin verkon leveyssuuntaisen läpikäynnin algoritmin (breadth-first search algorithm). Tietorakenne joka on siis pakko toteuttaa on Stack. Joudun luultavasti toteuttaamaan myös jonkinmoisen järjestysalgoritmin ja lista rajapinnan. Valitsin bfs:n koska sen avulla voi käydä lapi kaikki verkon solmut leveyssuunnassa, eli labyrintin kaikki reitit käydään läpi samanaikaisesti samalla nopeudella. Ohjelman syötteeksi tulisi haluttu labyrintti, jonka ohjelma sitten ratkaisee. Tavoitteena on saada aikavaativuus ja tilavaativuus noin O(n) missä n on "solmujen määrä".
+##Aihe
+Aiheena on lyhimmän reitin löytäminen labyrintin alusta maaliin. Projektissani vertailen BFS (leveyssuuntainen haku), A*  ja Bellman-Ford algoritmien suorituskykyeroja tämän ongelman ratkaisemisessa. 
+##Tietorakenteet & Algoritmit
+BFS:n toteuttamiseen joudun käyttyämään jono-tietorakennetta (Queue) ja A* algoritmin toteutukseen tarvitsen prioriteettijonoa (PriorityQueue). Projektissani joudun siis toteuttamaan nämä kaksi tietorakennetta. 
+##Ohjelman syötteet
+Projektissa ei ole graaffista käyttöliittymää joten syötteet annetaan komentorivin kautta. Syötteenä voi antaa halutun labyrintin.
+##Aika-ja Tilavaativuus
+* BFS:n aika-ja tilavaativuudet ovat kummatkin O(n).
+* A* algoritmin aikavaativuus on O(nlogn) ja tilavaativuus on O(n).
+* Bellman-Ford aika-ja tilavaativuus on O(n)
+
+##Lähteet
+[A* algoritmi Wikipedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
+
+[Introduction to A* Stanford](http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html)
+
+[BFS Wikipedia] (https://en.wikipedia.org/wiki/Breadth-first_search)
+
+[BFS ja Bellman-Ford pdf sivut 509-534](http://www.cs.helsinki.fi/u/floreen/tira2015syksy/sivut351-638.pdf)
