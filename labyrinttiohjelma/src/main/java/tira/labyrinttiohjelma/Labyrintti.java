@@ -12,11 +12,20 @@ public class Labyrintti {
     private int loppuX;
     private int loppuY;
     
+    /**
+     * Konstruktorissa etsitään labyintin alku ja loppu.
+     * 
+     * @param kuva
+     */
     public Labyrintti(char[][] kuva) {
         this.kuva = kuva;
         etsiALkuLoppu();
     }
     
+    /**
+     * Etsitään alku ja loppu
+     * 
+     */
     public void etsiALkuLoppu() {
         // Booleanit siltä varalta jos on monta alkua ja loppua.
         boolean alkuLoyty = false;
@@ -55,22 +64,47 @@ public class Labyrintti {
         
     }
 
+    /**
+     * Palauttaa taulukon toteutuksen.
+     * 
+     * @return
+     */
     public char[][] getKuva() {
         return kuva;
     }
 
+    /**
+     * Palauttaa alun x-kooridinaatin.
+     * 
+     * @return
+     */
     public int getAlkuX() {
         return alkuX;
     }
 
+    /**
+     * Palauttaa alun y-kooridinaatin.
+     * 
+     * @return
+     */
     public int getAlkuY() {
         return alkuY;
     }
 
+    /**
+     * Palauttaa lopun x-kooridinaatin.
+     * 
+     * @return
+     */
     public int getLoppuX() {
         return loppuX;
     }
 
+    /**
+     * Palauttaa lopun y-kooridinaatin.
+     * 
+     * @return
+     */
     public int getLoppuY() {
         return loppuY;
     }

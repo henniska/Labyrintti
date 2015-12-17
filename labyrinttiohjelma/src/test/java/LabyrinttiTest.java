@@ -14,35 +14,54 @@ import tira.labyrinttiohjelma.Labyrintti;
 public class LabyrinttiTest {
     private Labyrintti lb;
     
+    /**
+     *
+     */
     public LabyrinttiTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
         lb = new Labyrintti(test);
         lb.etsiALkuLoppu();
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
 
-    
-    
+    /**
+     *
+     */
     @Test
     public void etsiALkuLoppuTest1() {
         assertEquals(12, lb.getAlkuX());
         assertEquals(5, lb.getAlkuY());
     }
     
+    /**
+     *
+     */
     @Test
     public void etsiALkuLoppuTest2() {
         assertEquals(0, lb.getLoppuX());

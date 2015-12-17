@@ -1,10 +1,10 @@
 
 package tira.labyrinttiohjelma;
 
-
 /**
- *
- * Breadth-First seach algoritmi;
+ * Breadth-First seach algoritmi
+ * 
+ * @author Henri
  */
 public class BFS extends Ratkaisija {
     
@@ -14,12 +14,21 @@ public class BFS extends Ratkaisija {
     private boolean uusiSykli = false;
     private Jono<Node> q;
     
+    /**
+     *
+     * @param laby
+     */
     public BFS (Labyrintti laby) {
         super(laby);
         
     }
-    //Palauttaa lyhimmän reitin pituuden.
-    @Override
+ 
+    /**
+     * Palauttaa lyhimmän reitin pituuden
+     * 
+     * @return
+     */
+        @Override
     public int lyhin() {;
         this.q = new Jono<>();
         int n = kopio.getAlkuX();
@@ -51,8 +60,17 @@ public class BFS extends Ratkaisija {
         return -1;
     }
     
-    // Palauttaa true jos loppu löytyy.
-    public boolean reitti(int x, int y, Node edel) {
+
+
+    /**
+     * Palauttaa true jos maali löytyy
+     * 
+     * @param x
+     * @param y
+     * @param edel
+     * @return
+     */
+        public boolean reitti(int x, int y, Node edel) {
         if (reitinSelvitys(x, y)) {
             Node m = new Node(x, y, edel);
             q.add(m);

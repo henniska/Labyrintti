@@ -6,19 +6,32 @@ package tira.labyrinttiohjelma;
  * SisÃ¤ltÃ¤Ã¤ solmun x ja y koordinaatit.
  */
 public class Node implements Comparable<Node> {
-    //x ja y ovat solmun koordinaatit.
+    /**
+     * x ja y ovat solmun koordinaatit
+     */
     int x;
     int y;
-    //Edellinen kertoo reitin mitä pitkin on tultu.
+    /**
+     * Edellinen kertoo reitin mitä pitkin on tultu
+     */
     Node edellinen;
-    //gscore kertoo tämänhetkisen reitin pituuden (solmusta alkuun).
+    /**
+     * gscore kertoo tämänhetkisen reitin pituuden (solmusta alkuun)
+     */
     int gScore;
-    //fscore kertoo kertoo pituuden maalista solmuun, johon on lisätty gscore.
+    /**
+     * fscore kertoo kertoo pituuden maalista solmuun, johon on lisätty gscore
+     */
     int fScore;
 
-    
-    // Jos alan käyttyämään BufferedImage Node luokan voi muuttaa tarpeen mukaan pixeleitä varten.
-    public Node(int x, int y, Node edellinen) {
+    /**
+     * Luo uuden solmun jolla on edellinen.
+     * 
+     * @param x
+     * @param y
+     * @param edellinen
+     */
+        public Node(int x, int y, Node edellinen) {
         this.x = x;
         this.y = y;
         this.edellinen = edellinen;
@@ -26,6 +39,12 @@ public class Node implements Comparable<Node> {
         this.fScore = Integer.MAX_VALUE;
     }
     
+    /**
+     * Luo uuden solmun, jolla ei ole edellistä
+     * 
+     * @param x
+     * @param y
+     */
     public Node(int x, int y) {
         this.x = x;
         this.y = y;
@@ -35,44 +54,93 @@ public class Node implements Comparable<Node> {
            
     }
     
+    /**
+     * Asettaa edellisen arvon
+     * 
+     * @param n
+     */
     public void setPrev(Node n) {
         this.edellinen = n;
     }
-    
-    //Palauttaa reitin edellisen solmun.
-    public Node prev() {
+
+    /**
+     * Palauttaa reitin edellisen solmun
+     * 
+     * @return
+     */
+        public Node prev() {
         return edellinen;
     }
 
+    /**
+     * Palauttaa solmun x-koordinaatin
+     * 
+     * @return
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Asettaa solmun x-koordinaatin
+     * 
+     * @param x
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     * Palauttaa solmun y-koordinaatin
+     * 
+     * @return
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Asettaa solmun y-koordinaatin
+     * 
+     * @param y
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    /**
+     * Palauttaa solmun fscore
+     * 
+     * @return
+     */
     public int getfScore() {
         return fScore;
     }
 
+    /**
+     * Asettaa solmun fscore
+     * 
+     * @param maali
+     */
     public void setfScore(Node maali) {
         //Eli pituus maaliin + reitin pituus
-        this.fScore = Math.abs((x-maali.getX()) + (y-maali.getY())) + gScore;
+        this.fScore = Math.abs((x-maali.getX())) + Math.abs(y-maali.getY()) + gScore;
     }
 
+    /**
+     * Palauttaa solmun gscore
+     * 
+     * @return
+     */
     public int getgScore() {
         return gScore;
     }
 
+    /**
+     * Asettaa solmun gscore
+     * 
+     * @param gScore
+     */
     public void setgScore(int gScore) {
         this.gScore = gScore;
     }

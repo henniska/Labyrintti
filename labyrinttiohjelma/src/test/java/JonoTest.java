@@ -14,25 +14,43 @@ import tira.labyrinttiohjelma.Node;
  */
 public class JonoTest {
     
+    /**
+     *
+     */
     public JonoTest() {
     }
     
+    /**
+     *
+     */
     @BeforeClass
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterClass
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
     }
 
+    /**
+     *
+     */
     @Test
     public void nodeTest() {
         Node a = new Node(3, 5);
@@ -42,6 +60,9 @@ public class JonoTest {
         assertEquals("(3, 5)", b.toString());
     }
     
+    /**
+     *
+     */
     @Test
     public void isEmptyTest() {
         Jono<Integer> q = new Jono<>();
@@ -50,6 +71,9 @@ public class JonoTest {
         assertEquals(true, q.isEmpty());
     }
     
+    /**
+     *
+     */
     @Test
     public void onkoTaynnaTest1() {
         Jono<Integer> q = new Jono<>(3);
@@ -58,6 +82,9 @@ public class JonoTest {
         assertEquals(true, q.onkoTaynna());
     }
     
+    /**
+     *
+     */
     @Test
     public void onkoTaynnaTest2() {
         Jono<Integer> q = new Jono<>(3);
@@ -68,6 +95,9 @@ public class JonoTest {
         assertEquals(true, q.onkoTaynna());
     }
     
+    /**
+     *
+     */
     @Test
     public void pollTest() {
         Jono<Integer> q = new Jono<>();
@@ -75,6 +105,9 @@ public class JonoTest {
         assertEquals((Integer)5, q.poll());
     }
     
+    /**
+     *
+     */
     @Test
     public void addTest1() {
         Jono<Integer> q = new Jono<>();
@@ -85,6 +118,9 @@ public class JonoTest {
         assertEquals(4, q.jononPituus());
     }
     
+    /**
+     *
+     */
     @Test
     public void addTest2() {
         Jono<Integer> q = new Jono<>(3);
@@ -97,6 +133,9 @@ public class JonoTest {
         assertEquals(2, q.jononPituus());
     }
     
+    /**
+     *
+     */
     @Test
     public void kasvatakokoaTest() {
         Jono<Integer> q = new Jono<>(7);

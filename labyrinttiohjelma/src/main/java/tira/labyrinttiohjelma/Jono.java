@@ -1,30 +1,46 @@
 
 package tira.labyrinttiohjelma;
 /**
- *
- * Jonon toteutus;
+ * Jonon toteutus
+ * 
  * @param <T>
  */
 public class Jono<T> {
     private int koko;
     private T[] jono;
-    //Eka ja vika kertovat jonon pään ja hännän paikan.
+    /**
+     * 
+     * Eka ja vika kertovat jonon pään ja hännän paikan.
+     */
     private int eka;
     private int vika;
 
+    /**
+     * Luodaan jonon taulukko haluttuun kokoon
+     * 
+     * @param koko
+     */
     public Jono(int koko) {
         this.koko = koko;
         this.jono = (T[]) new Object[koko];
     } 
     
-    //Jos kokoa ei mainita, se saa perusarvon 10.
+
+    /**
+     * Jos kokoa ei mainita, se saa perusarvon 10.
+     * 
+     */
     public Jono() {
         this.koko = 10;
         this.jono = (T[]) new Object[10];  
     }
-    
-    //Palauttaa ensimmäisen jonossa olevan muuttujan ja 'pienentää' jonoa.
-    public T poll() {
+
+    /**
+     * Palauttaa ensimmäisen jonossa olevan muuttujan ja 'pienentää' jonoa.
+     * 
+     * @return
+     */
+        public T poll() {
         if (isEmpty()) {
             return null;
         }
@@ -36,9 +52,13 @@ public class Jono<T> {
         }
         return poistettu;
     }
-    
-    //Lisää muuttujan jonon perälle
-    public void add(T t) {
+
+    /**
+     * Lisää muuttujan jonon perälle.
+     * 
+     * @param t
+     */
+        public void add(T t) {
         if (onkoTaynna()) {
             kasvataKokoa();
         }
@@ -49,9 +69,13 @@ public class Jono<T> {
         }
 
     }
-    
-    //Palauttaa jonon pituden eikä arrayn kokoa.
-    public int jononPituus() {
+
+    /**
+     * Palauttaa jonon pituden eikä arrayn kokoa.
+     * 
+     * @return
+     */
+        public int jononPituus() {
         if (eka == vika) {
             return 0;
         }
@@ -61,12 +85,20 @@ public class Jono<T> {
         return koko - eka + vika;
     }
     
-    
+    /** 
+     * Palauttaa true jos jono on tyhjä.
+     * 
+     * @return
+     */
     public boolean isEmpty() {
         return eka == vika;
     }
     
-    
+    /**
+     * Jos jono on täynnä, jonon pää siirtyy taas taulukon alkuun.
+     * 
+     * @return
+     */
     public boolean onkoTaynna() {
         int seuraava = vika +1;
         if (seuraava == koko) {
@@ -76,8 +108,11 @@ public class Jono<T> {
             
     }
 
-    //Array kopioidaan uuteen, kaksi kertaa suurempaan taulukkoon.
-    public void kasvataKokoa() {
+    /**
+     * Array kopioidaan uuteen, kaksi kertaa suurempaan taulukkoon.
+     * 
+     */
+        public void kasvataKokoa() {
         if (eka == vika) {
             this.jono = (T[]) new Object[koko*2];
             koko = koko*2;
@@ -115,6 +150,11 @@ public class Jono<T> {
 
     }
     
+    /**
+     * Palauttaa jonon koon.
+     * 
+     * @return
+     */
     public int getKoko() {
         return koko;
     }
