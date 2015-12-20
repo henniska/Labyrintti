@@ -25,7 +25,7 @@ public class Ratkaisija {
      * 
      * @return
      */
-        public int lyhin() {
+    public int lyhin() {
         return -1;
     }
     
@@ -37,7 +37,7 @@ public class Ratkaisija {
      * @param y
      * @return
      */
-        public boolean reitinSelvitys(int x, int y) {
+    public boolean reitinSelvitys(int x, int y) {
 
         if (x < 0 || x >= kopio.getKuva().length || y < 0 || y >= kopio.getKuva()[0].length) {
             return false;
@@ -56,7 +56,7 @@ public class Ratkaisija {
      * 
      * @return
      */
-        public Labyrintti teeKopioNykyisesta() {
+    public Labyrintti teeKopioNykyisesta() {
         int a = laby.getKuva().length;
         int b = laby.getKuva()[0].length;
         char[][] lb = laby.getKuva();
@@ -83,26 +83,25 @@ public class Ratkaisija {
     /**
      * Tulostaa reitin pituuden, reitin ja ruudukon
      */
-        public void tulosta() {
+    public void tulosta() {
         String nimi = this.getClass().getSimpleName();
         System.out.println(nimi);
-        System.out.println("");
         System.out.println("Lyhin = " + lyhin());
-//        System.out.println("");
-//        System.out.println("Reitti:");
+        System.out.println("");
+        System.out.println("Reitti (x, y):");
         Node node = getMaali();
-//        boolean temp = true;
-//        while (node != null) {
-//            System.out.println("");
-//            System.out.print(node.getX() + ", " + node.getY());
-//            if (temp) {
-//                System.out.print(" loppu");
-//                temp = false;
-//            }
-//            node = node.prev();
-//        }
-//        System.out.print(" alku");
-//        System.out.println("");
+        boolean temp = true;
+        while (node != null) {
+            System.out.println("");
+            System.out.print(node.getX() + ", " + node.getY());
+            if (temp) {
+                System.out.print(" loppu");
+                temp = false;
+            }
+            node = node.prev();
+        }
+        System.out.print(" alku");
+        System.out.println("");
         
         node = getMaali();
         node = node.prev();
@@ -110,7 +109,7 @@ public class Ratkaisija {
             kopio.getKuva()[node.getX()][node.getY()] = 'X';
             node = node.prev();
         }
-//        System.out.println("");
+        System.out.println("");
         for (int i = 0; i < kopio.getKuva().length; i++) {
             System.out.println("");
             for (int j = 0; j < kopio.getKuva()[0].length; j++) {
@@ -123,4 +122,5 @@ public class Ratkaisija {
         System.out.println("");   
         kopio = teeKopioNykyisesta();
     }
+
 }

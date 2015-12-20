@@ -7,15 +7,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import tira.labyrinttiohjelma.Astar;
 import tira.labyrinttiohjelma.Labyrintti;
-import tira.labyrinttiohjelma.Node;
 
 /**
  *
  * @author Henri
  */
 public class AstarTest {
-    private Astar as;
-    private Labyrintti lb;
     
     /**
      *
@@ -42,8 +39,6 @@ public class AstarTest {
      */
     @Before
     public void setUp() {
-        lb = new Labyrintti(test);
-        as = new Astar(lb);
     }
     
     /**
@@ -57,33 +52,50 @@ public class AstarTest {
      *
      */
     @Test
-    public void lyhinTest() {
-        assertEquals(25, as.lyhin());
-    
+    public void lyhinTest1() {
+        Labyrintti lb = new Labyrintti(LabyrinttiTest.test);
+        Astar ast = new Astar(lb);
+        assertEquals(18, ast.lyhin());
     }
     
-//    @Test
-//    public void reittiTest() {
-//        Node n = new Node(0, 8);
-//        n.setgScore(0);
-//        assertEquals(true, as.reitti(0, 8, new Node(0, 8)));
-//    }
+    /**
+     *
+     */
+    @Test
+    public void lyhinTest2() {
+        Labyrintti lb = new Labyrintti(LabyrinttiTest.test1);
+        Astar ast = new Astar(lb);
+        assertEquals(17, ast.lyhin());
+    }
     
+    /**
+     *
+     */
+    @Test
+    public void lyhinTest3() {
+        Labyrintti lb = new Labyrintti(LabyrinttiTest.test2);
+        Astar ast = new Astar(lb);
+        assertEquals(25, ast.lyhin());
+    }
     
+    /**
+     *
+     */
+    @Test
+    public void lyhinTest4() {
+        Labyrintti lb = new Labyrintti(LabyrinttiTest.test3);
+        Astar ast = new Astar(lb);
+        assertEquals(15, ast.lyhin());
+    }
     
-    
-    private static char[][] test = new char[][] {
-        {'#', '#', '#', '#', '#', '#', '#', '#', '!', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', '#', '#', '#', '#', '#', '#', ' ', '#'},
-        {'#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', '#'},
-        {'#', ' ', '#', ' ', '#', '#', ' ', ' ', '#', '#'},
-        {'#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', '#', '#', '#', ' ', '#', '#', ' ', '#'},
-        {'#', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', '#'},
-        {'#', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#'},
-        {'#', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#'},
-        {'#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#'},
-        {'#', '#', '#', '#', '#', '?', '#', '#', '#', '#'}};
+    /**
+     *
+     */
+    @Test
+    public void lyhinTest5() {
+        Labyrintti lb = new Labyrintti(LabyrinttiTest.test4);
+        Astar ast = new Astar(lb);
+        assertEquals(3, ast.lyhin());
+    }
+   
 }

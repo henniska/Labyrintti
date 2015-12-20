@@ -59,8 +59,6 @@ public class BFS extends Ratkaisija {
         this.kopio = teeKopioNykyisesta();
         return -1;
     }
-    
-
 
     /**
      * Palauttaa true jos maali löytyy

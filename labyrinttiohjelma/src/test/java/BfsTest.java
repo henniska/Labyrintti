@@ -1,6 +1,4 @@
 
-import java.util.ArrayDeque;
-import java.util.Queue;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -10,7 +8,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import tira.labyrinttiohjelma.BFS;
 import tira.labyrinttiohjelma.Labyrintti;
-import tira.labyrinttiohjelma.*;
 
 /**
  *
@@ -45,7 +42,7 @@ public class BfsTest {
      */
     @Before
     public void setUp() {
-        lb = new Labyrintti(test);
+        lb = new Labyrintti(LabyrinttiTest.test);
         bf = new BFS(lb);
     }
     
@@ -61,7 +58,7 @@ public class BfsTest {
      */
     @Test
     public void lyhinTest() {
-        assertEquals(25, bf.lyhin());
+        assertEquals(18, bf.lyhin());
     }
     
     /**
@@ -76,8 +73,32 @@ public class BfsTest {
      *
      */
     @Test
-    public void reitinSelvitysTest() {
+    public void reitinSelvitysTest1() {
         assertEquals(false, bf.reitinSelvitys(-1, 0));
+    }
+    
+    /**
+     *
+     */
+    @Test
+    public void reitinSelvitysTest2() {
+        assertEquals(true, bf.reitinSelvitys(5, 1));
+    }
+    
+    /**
+     *
+     */
+    @Test
+    public void reitinSelvitysTest3() {
+        assertEquals(false, bf.reitinSelvitys(0, 0));
+    }
+    
+    /**
+     *
+     */
+    @Test
+    public void reitinSelvitysTest4() {
+        assertEquals(true, bf.reitinSelvitys(11, 5));
     }
     
     /**
@@ -87,22 +108,5 @@ public class BfsTest {
     public void teeKopioNykyisestaTest() {
         Assert.assertArrayEquals(lb.getKuva(), bf.teeKopioNykyisesta().getKuva());
     }
-    
-    private static char[][] test = new char[][] {
-        {'#', '#', '#', '#', '#', '#', '#', '#', '!', '#'},
-        {'#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', '#', '#', '#', '#', '#', '#', ' ', '#'},
-        {'#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', '#'},
-        {'#', ' ', '#', ' ', '#', '#', ' ', ' ', '#', '#'},
-        {'#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '#'},
-        {'#', ' ', '#', '#', '#', ' ', '#', '#', ' ', '#'},
-        {'#', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', '#'},
-        {'#', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', '#'},
-        {'#', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#'},
-        {'#', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#'},
-        {'#', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#'},
-        {'#', '#', '#', '#', '#', '?', '#', '#', '#', '#'}};
-    
-    
 }
 

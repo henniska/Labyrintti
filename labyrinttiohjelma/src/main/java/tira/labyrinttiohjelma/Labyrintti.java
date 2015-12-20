@@ -32,11 +32,11 @@ public class Labyrintti {
         boolean loppuLoyty = false;
         for (int i = 0; i < kuva.length; i++) {
             for (int j = 0; j < kuva[0].length; j++) {
-                char[] kuva1 = kuva[j];
+//                char[] kuva1 = kuva[j];
                 if (kuva[i][j] == '?') {
                     if (alkuLoyty) {
                         System.out.println("Monta alkua!");
-                        return;
+                        System.exit(1);
                     }
                     alkuX = i;
                     alkuY = j;
@@ -45,7 +45,7 @@ public class Labyrintti {
                 if (kuva[i][j] == '!') {
                     if (loppuLoyty) {
                         System.out.println("Monta loppua!");
-                        return;
+                        System.exit(1);
                     } 
                     loppuX = i;
                     loppuY = j;
@@ -61,7 +61,7 @@ public class Labyrintti {
         } else {
             System.out.println("Ei alkua");
         }
-        
+        System.exit(1);
     }
 
     /**

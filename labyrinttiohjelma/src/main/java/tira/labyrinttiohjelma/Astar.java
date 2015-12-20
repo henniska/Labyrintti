@@ -1,9 +1,6 @@
 
 package tira.labyrinttiohjelma;
 
-import java.util.Iterator;
-import java.util.PriorityQueue;
-
 /**
  * A* algoritmi
  * 
@@ -25,7 +22,7 @@ public class Astar extends Ratkaisija {
      * 
      * @return
      */
-        @Override
+    @Override
     public int lyhin() {
         this.keko = new MinimiKeko(new Node[laby.getKuva().length*laby.getKuva().length]);
         maali = new Node(kopio.getLoppuX(), kopio.getLoppuY());
@@ -47,10 +44,8 @@ public class Astar extends Ratkaisija {
             if (reitti(x, y+1, s)) return maali.getgScore();
             if (reitti(x, y-1, s)) return maali.getgScore();
         }
-            
-        System.out.println("Loppua ei löytynyt");
         this.kopio = teeKopioNykyisesta();
-        return -1;
+        return 0;
     }
 
     /**
@@ -61,7 +56,7 @@ public class Astar extends Ratkaisija {
      * @param edel
      * @return
      */
-        public boolean reitti(int x, int y, Node edel) {
+    public boolean reitti(int x, int y, Node edel) {
         if (reitinSelvitys(x, y)) {
             Node m = new Node(x, y);
             int gscore = edel.getgScore()+1;

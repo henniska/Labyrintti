@@ -9,7 +9,6 @@ package tira.labyrinttiohjelma;
 public class MinimiKeko<T extends Node> {
     private int keonKoko;
     private T[] keko;
-    private T[] kekoKopio;
 
     /**
      * Konstruktori saa parametrina haluamansa taulukon.
@@ -19,7 +18,6 @@ public class MinimiKeko<T extends Node> {
     public MinimiKeko(T[] t) {
         this.keonKoko = 0;
         this.keko = t;
-        this.kekoKopio = t;
     } 
 
     /**
@@ -101,9 +99,6 @@ public class MinimiKeko<T extends Node> {
         if (node == null) {
             return;
         }
-//        if (keko.length == keonKoko) {
-//            kasvataKokoa();
-//        }
         keonKoko++;
         keko[keonKoko-1] = node;
         int i = keonKoko -1;
@@ -190,16 +185,6 @@ public class MinimiKeko<T extends Node> {
         }
         return index;
     }
- 
-//    public void kasvataKokoa() {
-//        
-//        
-//        for (int i = 0; i < keko.length; i++) {
-//            kekoKopio[i] = keko[i];
-//            
-//        }
-//        this.keko = kekoKopio;
-//    }
     
     /**
      * Palauttaa true jos alkio on keossa
