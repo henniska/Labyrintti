@@ -2,6 +2,7 @@
 package tira.labyrinttiohjelma;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
@@ -164,16 +165,24 @@ public class Kayttoliittyma {
      * @throws IOException
      */
     public String[] avaaTiedosto() throws IOException{
+        FileReader fr = null;
+        try {
+            fr = new FileReader(tiedostonSijainti);
         
-        FileReader fr = new FileReader(tiedostonSijainti);
-        BufferedReader bf = new BufferedReader(fr);
-        int rivienMaara = tiedostonRivienMaara();
-        String[] teksti = new String[rivienMaara];
-        for (int i = 0; i < teksti.length; i++) {
-            teksti[i] = bf.readLine();
-            
+        } catch(FileNotFoundException e) {
+            System.out.println("Tiedostoa " + tiedostonSijainti + " ei löytynyt.");
+            System.exit(1);
         }
-        bf.close();
+         
+        String[] teksti;
+        try (BufferedReader bf = new BufferedReader(fr)) {
+            int rivienMaara = tiedostonRivienMaara();
+            teksti = new String[rivienMaara];
+            for (int i = 0; i < teksti.length; i++) {
+                teksti[i] = bf.readLine();
+                
+            }
+        }
         return teksti;
     }
     
