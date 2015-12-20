@@ -1,5 +1,5 @@
 ##Aihe
-Aiheena on lyhimmän reitin löytäminen labyrintin alusta maaliin. Projektissani vertailen BFS (leveyssuuntainen haku), A*  ja Bellman-Ford algoritmien suorituskykyeroja tämän ongelman ratkaisemisessa. 
+Aiheena on lyhimmän reitin löytäminen labyrintin alusta maaliin. Projektissani vertailen BFS (leveyssuuntainen haku) ja  A* algoritmien suorituskykyeroja tämän ongelman ratkaisemisessa. 
 ##Tietorakenteet & Algoritmit
 BFS:n toteuttamiseen joudun käyttyämään jono-tietorakennetta (Queue) ja A* algoritmin toteutukseen tarvitsen prioriteettijonoa (PriorityQueue). Projektissani joudun siis toteuttamaan nämä kaksi tietorakennetta. 
 ##Ohjelman syötteet
@@ -7,7 +7,6 @@ Projektissa ei ole graaffista käyttöliittymää joten syötteet annetaan komen
 ##Aika-ja Tilavaativuus
 * BFS:n aika-ja tilavaativuudet ovat kummatkin O(n).
 * A* algoritmin aikavaativuus on O(nlogn) ja tilavaativuus on O(n).
-* Bellman-Ford aika-ja tilavaativuus on O(n)
 
 ##Lähteet
 [A* algoritmi Wikipedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
@@ -16,4 +15,4 @@ Projektissa ei ole graaffista käyttöliittymää joten syötteet annetaan komen
 
 [BFS Wikipedia] (https://en.wikipedia.org/wiki/Breadth-first_search)
 
-[BFS ja Bellman-Ford pdf sivut 509-534](http://www.cs.helsinki.fi/u/floreen/tira2015syksy/sivut351-638.pdf)
+[BFS pdf sivut 509-534](http://www.cs.helsinki.fi/u/floreen/tira2015syksy/sivut351-638.pdf)
