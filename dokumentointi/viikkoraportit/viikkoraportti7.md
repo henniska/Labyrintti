@@ -1,0 +1,1 @@
+Rakensin ohjelmaani tekstikäyttöliittymän, jossa on mukana suorituskykytestaus, labyrintin ratkaisun lisäksi. Suorituskykytestausta varten rakensin myös labyrintin-luoja metodin, joka valmistaa random taulukon annetun koon mukaan. Lisäsin myös javadoc:n ja enemmän testausta. 
