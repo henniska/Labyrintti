@@ -5,6 +5,7 @@ package tira.labyrinttiohjelma;
  *
  * Kantaluokka ratkaisijoille;
  */
+
 public class Ratkaisija {
     Labyrintti kopio; 
     final Labyrintti laby;
@@ -50,7 +51,7 @@ public class Ratkaisija {
     }
 
     /**
-     * Koska lyhin() metodini joutuu muokkaamaan taulukkoa, 
+     * Koska lyhin()-metodini joutuu muokkaamaan taulukkoa, 
      * tarvitaan siitÃ¤ aina kopio siltÃ¤ varalta, ettÃ¤ 
      * joudutaan tekemÃ¤Ã¤n monta lyhin() kutsua.
      * 
